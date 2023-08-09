@@ -1,8 +1,10 @@
 const NotFoundError = require('../errors/NotFoundError');
+const ConflictError = require('../errors/ConflictError');
 const Movie = require('../models/movie');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({})
+  const userId = req.user._id;
+  Movie.find({ owner: userId })
     .then((movie) => res.send(movie))
     .catch(next);
 };
@@ -36,19 +38,22 @@ module.exports.addMovie = (req, res, next) => {
     owner: req.user._id,
   })
     .then((movie) => res.send(movie))
-    .catch(next);
+    .catch((err) => {
+      if (err.code === 11000) {
+        return next(new ConflictError('Данный фильм уже добавлен!'));
+      }
+      return next(err);
+    });
 };
 
 module.exports.deleteMovie = (req, res, next) => {
   Movie.findOneAndRemove({
     movieId: req.params.movieId,
+    owner: req.user._id,
   })
     .then((movie) => {
       if (!movie) {
         return next(new NotFoundError('Фильм с указанным movieId не найден'));
-      }
-      if (movie.owner.toString() !== req.user._id) {
-        return next(new NotFoundError('У вас этого фильма нет!'));
       }
       return res.send(movie);
     })
