@@ -53,7 +53,7 @@ module.exports.deleteMovie = (req, res, next) => {
   })
     .then((movie) => {
       if (!movie) {
-        return next(new NotFoundError('Фильм с указанным movieId не найден'));
+        return next(new NotFoundError('Данный фильм не найден в вашей коллекции'));
       }
       return res.send(movie);
     })
