@@ -1,0 +1,48 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "npx eslint .",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SenpaiSun/movies-explorer-api.git"
+  },
+  "author": "Smely M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SenpaiSun/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/SenpaiSun/movies-explorer-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-winston": "^4.2.0",
+    "helmet": "^7.0.0",
+    "http-status-codes": "^2.2.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.1",
+    "validator": "^13.9.0",
+    "winston": "^3.10.0",
+    "word-wrap": "^1.2.3"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
