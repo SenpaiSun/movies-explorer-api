@@ -18,7 +18,7 @@ router.post(
       year: Joi.string().required(),
       description: Joi.string().required(),
       image: Joi.string().required().pattern(/^(http|https):\/\/(www\.)?[\w\-._~:/?#]+#?$/),
-      trailerLink: Joi.string().required().pattern(/^(http|https):\/\/(www\.)?[\w\-._~:/?#]+#?$/),
+      trailerLink: Joi.string().required().pattern(/^(http|https):\/\/(www\.)?[\w\-._~:/?=&]+/),
       thumbnail: Joi.string().required().pattern(/^(http|https):\/\/(www\.)?[\w\-._~:/?#]+#?$/),
       owner: Joi.string().required(),
       movieId: Joi.number().required(),
